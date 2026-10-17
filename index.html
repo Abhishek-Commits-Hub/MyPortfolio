@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhishek Kumar Dutta — Frontend Developer &amp; CSE Undergraduate</title>
+  <meta name="description"
+    content="Personal developer portfolio of Abhishek Kumar Dutta. Computer Science Engineering student at BIT Sindri, frontend developer, and competitive programmer.">
+
+  <!-- Fonts: Bricolage Grotesque & IBM Plex Mono via Google Fonts, General Sans via Fontshare -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Film Grain Texture Overlay -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- Ambient Cursor Glow Spotlight -->
+  <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Preloader for Frame Assets -->
+  <div id="loader" class="loader" aria-live="polite" aria-label="Loading portfolio visual sequence">
+    <div class="loader-content">
+      <div class="loader-logo-wrapper">
+        <img src="logo.svg" alt="Abhishek Kumar Dutta Logo" class="loader-logo-img" width="56" height="56">
+        <span class="loader-brand-title">ABHISHEK K. DUTTA</span>
+      </div>
+      <div class="loader-track">
+        <div id="loader-bar" class="loader-bar"></div>
+      </div>
+      <div class="loader-meta">
+        <span class="mono-label">SYNCHRONIZING FRAMES</span>
+        <span id="loader-text" class="mono-value">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header id="site-header" class="site-header">
+    <div class="nav-container">
+      <a href="#hero" class="brand-monogram" aria-label="Abhishek Kumar Dutta Home">
+        <span class="brand-logo-frame">
+          <img src="logo.svg" alt="Abhishek Kumar Dutta Logo" class="brand-logo-img" width="34" height="34">
+        </span>
+        <span class="brand-name">ABHISHEK KUMAR DUTTA</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active"><span class="nav-idx">00</span>Home</a></li>
+          <li><a href="#projects" class="nav-link"><span class="nav-idx">01</span>Projects</a></li>
+          <li><a href="#about" class="nav-link"><span class="nav-idx">02</span>About</a></li>
+          <li><a href="#toolkit" class="nav-link"><span class="nav-idx">03</span>Toolkit</a></li>
+          <li><a href="#experience" class="nav-link"><span class="nav-idx">04</span>Trajectory</a></li>
+          <li><a href="#achievements" class="nav-link"><span class="nav-idx">05</span>Recognition</a></li>
+          <li><a href="#contact" class="nav-link"><span class="nav-idx">06</span>Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="#contact" class="btn-connect" data-magnetic>
+          <span class="btn-connect-dot"></span>
+          <span>LET'S CONNECT</span>
+          <svg class="btn-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M1 11L11 1M11 1H3M11 1V9" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+
+        <button id="mobile-toggle" class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="burger-line"></span>
+          <span class="burger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+      <div class="mobile-drawer-inner">
+        <div class="drawer-header">
+          <span class="mono-label">NAVIGATION</span>
+          <span class="drawer-status">BIT SINDRI · CSE</span>
+        </div>
+        <ul class="mobile-nav-links">
+          <li><a href="#hero" class="mobile-link"><span class="num">00</span> Home</a></li>
+          <li><a href="#projects" class="mobile-link"><span class="num">01</span> Selected Work</a></li>
+          <li><a href="#about" class="mobile-link"><span class="num">02</span> About Me</a></li>
+          <li><a href="#toolkit" class="mobile-link"><span class="num">03</span> Technical Toolkit</a></li>
+          <li><a href="#experience" class="mobile-link"><span class="num">04</span> Trajectory &amp; Community</a></li>
+          <li><a href="#achievements" class="mobile-link"><span class="num">05</span> Recognition &amp; Certs</a></li>
+          <li><a href="#education" class="mobile-link"><span class="num">06</span> Education</a></li>
+          <li><a href="#contact" class="mobile-link"><span class="num">07</span> Get In Touch</a></li>
+        </ul>
+        <div class="drawer-footer">
+          <a href="mailto:abhishekdutta.contact@gmail.com" class="drawer-email">abhishekdutta.contact@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- HERO SECTION WITH PINNED SCROLL ANIMATION -->
+    <section id="hero" class="hero-section" aria-label="Cinematic Introduction">
+      <div class="hero-scroll-track" id="hero-track">
+        <div class="hero-sticky">
+          <!-- Hardware Accelerated Canvas -->
+          <canvas id="hero-canvas" class="hero-canvas"
+            aria-label="Scroll-controlled cinematic frame sequence animation"></canvas>
+
+          <!-- Subtle atmospheric integration vignette -->
+          <div class="canvas-vignette" aria-hidden="true"></div>
+
+          <!-- Hero Editorial Overlay Content -->
+          <div class="hero-overlay">
+            <div class="hero-grid-top">
+              <div class="hero-tag">
+                <span class="pulse-indicator"></span>
+                <span class="mono-label">COMPUTER SCIENCE ENGINEERING · INDIA</span>
+              </div>
+              <div class="hero-location-badge mono-label">
+                <span>23°47'N · 86°26'E</span>
+                <span class="sep">·</span>
+                <span>BIT SINDRI</span>
+              </div>
+            </div>
+
+            <div class="hero-headline-block">
+              <div class="hero-status-pill">
+                <span class="status-dot"></span>
+                <span class="mono-label">STUDENT DEVELOPER</span>
+              </div>
+              <h1 class="hero-title">
+                <span class="title-line">Building the web.</span>
+                <span class="title-line accent-gradient">One detail at a time.</span>
+              </h1>
+              <p class="hero-lead">
+                I’m Abhishek — a computer science student and frontend developer exploring the intersection of code,
+                interaction, and thoughtful design.
+              </p>
+
+              <div class="hero-cta-group">
+                <a href="#projects" class="btn btn-primary" data-magnetic>
+                  <span>EXPLORE MY WORK</span>
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </a>
+                <a href="#contact" class="btn btn-ghost" data-magnetic>
+                  <span>GET IN TOUCH</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-bottom-bar">
+              <div class="scroll-cue">
+                <div class="scroll-mouse">
+                  <div class="scroll-wheel"></div>
+                </div>
+                <span class="mono-label">SCROLL TO EXPERIENCE SEQUENCE</span>
+              </div>
+
+              <!-- Interactive Sound Waveform / Visualizer -->
+              <div class="hero-audio-visualizer" aria-label="Audio Visualizer Indicator"
+                title="Headphone audio visualizer">
+                <div class="audio-bars">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                </div>
+                <span class="mono-label">ACTIVE AUDIO</span>
+              </div>
+
+              <div class="hero-frame-counter mono-label">
+                <span id="frame-progress-label">FRAME 001</span>
+                <span class="sep">/</span>
+                <span>150</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 01: SELECTED PROJECTS -->
+    <section id="projects" class="content-section projects-section">
+      <div class="section-container">
+
+        <div class="section-header reveal-on-scroll">
+          <div class="section-pretitle">
+            <span class="mono-tag">01 · SELECTED WORK</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Built to solve, designed to work.</h2>
+          <p class="section-subtitle">
+            Focused applications engineered with clean semantics, robust state handling, and zero reliance on bloated
+            templates.
+          </p>
+        </div>
+
+        <div class="projects-list">
+
+          <!-- PROJECT 01: LEETMETRIC -->
+          <article class="project-card project-leetmetric reveal-on-scroll" data-tilt>
+            <div class="project-header">
+              <div class="project-number-wrap">
+                <span class="project-num">01</span>
+                <span class="project-category mono-label">ANALYTICS &amp; DATA DASHBOARD</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/Abhishek-Commits-Hub/LeetMetric" target="_blank" rel="noopener noreferrer"
+                  class="project-link-btn" title="View Source on GitHub">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                  </svg>
+                  <span>GITHUB REPO</span>
+                </a>
+                <a href="https://abhishek-commits-hub.github.io/LeetMetric/" target="_blank" rel="noopener noreferrer"
+                  class="project-link-btn btn-accent-link" title="Launch Live Demo">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  <span>LIVE DEMO</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-body-grid">
+              <div class="project-info">
+                <h3 class="project-title">LEETMETRIC</h3>
+                <h4 class="project-tagline">LeetCode Statistics &amp; Algorithmic Progress Dashboard</h4>
+
+                <p class="project-desc">
+                  Designed a high-visibility dashboard interface for instant username lookup, aggregating algorithmic
+                  problem metrics into intuitive visual indicators without distracting complexity.
+                </p>
+
+                <div class="project-feature-list">
+                  <div class="feature-item">
+                    <span class="feature-bullet-svg">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </span>
+                    <div>
+                      <strong>Dynamic Username Resolution:</strong> Instant profile query with input validation and
+                      resilient error handling for missing accounts.
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <span class="feature-bullet-svg">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </span>
+                    <div>
+                      <strong>Tiered Difficulty Metrics:</strong> Segmented visualization of Easy, Medium, and Hard
+                      problem tiers alongside overall solved ratios.
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <span class="feature-bullet-svg">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </span>
+                    <div>
+                      <strong>Progress Analytics:</strong> Circular meter representations and proportional completion
+                      tracking tailored for competitive programmers.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-tech-stack">
+                  <span class="tech-pill">HTML5</span>
+                  <span class="tech-pill">CSS3</span>
+                  <span class="tech-pill">JavaScript</span>
+                  <span class="tech-pill mono-label">REST API INTEGRATION</span>
+                </div>
+              </div>
+
+              <!-- Real Styled Interface Mockup -->
+              <div class="project-preview-wrap">
+                <div class="preview-browser-frame">
+                  <div class="frame-bar">
+                    <div class="frame-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <a href="https://abhishek-commits-hub.github.io/LeetMetric/" target="_blank" rel="noopener noreferrer" class="frame-url mono-label" title="Launch LeetMetric live demo">abhishek-commits-hub.github.io/LeetMetric/</a>
+                    <div class="frame-status mono-label">ONLINE</div>
+                  </div>
+
+                  <div class="preview-inner leetmetric-ui">
+                    <div class="ui-search-bar">
+                      <svg class="search-svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                      <span class="search-input-mock">abhishek_dutta_bit</span>
+                      <span class="search-btn-mock mono-label">SEARCH</span>
+                    </div>
+
+                    <div class="ui-stats-grid">
+                      <div class="stat-card total-card">
+                        <span class="card-label mono-label">TOTAL SOLVED</span>
+                        <div class="stat-big-val">382 <span class="stat-total-denom">/ 3240</span></div>
+                        <div class="ui-bar-track">
+                          <div class="ui-bar-fill" style="width: 58%;"></div>
+                        </div>
+                        <span class="stat-subtext mono-label">Top 14.2% percentile</span>
+                      </div>
+
+                      <div class="stat-card-breakdown">
+                        <div class="diff-row easy interactive-row">
+                          <span class="diff-name mono-label">EASY</span>
+                          <span class="diff-count">180</span>
+                          <span class="diff-bar"><span style="width: 72%;"></span></span>
+                        </div>
+                        <div class="diff-row medium interactive-row">
+                          <span class="diff-name mono-label">MEDIUM</span>
+                          <span class="diff-count">168</span>
+                          <span class="diff-bar"><span style="width: 54%;"></span></span>
+                        </div>
+                        <div class="diff-row hard interactive-row">
+                          <span class="diff-name mono-label">HARD</span>
+                          <span class="diff-count">34</span>
+                          <span class="diff-bar"><span style="width: 22%;"></span></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="ui-footer-mock">
+                      <span class="mono-label">ACCURACY RATE: 68.4%</span>
+                      <span class="mono-label">ACTIVE STREAK: 42 DAYS</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 02: NEXORA -->
+          <article class="project-card project-nexora reveal-on-scroll" data-tilt>
+            <div class="project-header">
+              <div class="project-number-wrap">
+                <span class="project-num">02</span>
+                <span class="project-category mono-label">E-COMMERCE ARCHITECTURE</span>
+              </div>
+              <div class="project-actions">
+                <a href="https://github.com/Abhishek-Commits-Hub/Nexora" target="_blank" rel="noopener noreferrer"
+                  class="project-link-btn" title="View Source on GitHub">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path
+                      d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                    </path>
+                  </svg>
+                  <span>GITHUB REPO</span>
+                </a>
+                <a href="https://abhishek-commits-hub.github.io/Nexora/" target="_blank" rel="noopener noreferrer"
+                  class="project-link-btn btn-accent-link" title="Launch Live Demo">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                  <span>LIVE DEMO</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="project-body-grid">
+              <div class="project-info">
+                <h3 class="project-title">NEXORA</h3>
+                <h4 class="project-tagline">Comprehensive Frontend E-Commerce Platform</h4>
+
+                <p class="project-desc">
+                  Built a responsive online storefront managing a 30-product catalog, offering multi-dimensional
+                  filtering, dynamic product modals, client-side persistence, and an interactive payment simulation.
+                </p>
+
+                <div class="project-feature-list">
+                  <div class="feature-item">
+                    <span class="feature-bullet-svg">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </span>
+                    <div>
+                      <strong>30-Product Catalog Engine:</strong> Fast search indexing, real-time price filtering,
+                      category toggling, and multi-criteria sorting.
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <span class="feature-bullet-svg">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </span>
+                    <div>
+                      <strong>Full State Persistence:</strong> Stateful cart, user wishlist, and side-by-side product
+                      comparisons engineered entirely with <code class="mono-code">localStorage</code>.
+                    </div>
+                  </div>
+                  <div class="feature-item">
+                    <span class="feature-bullet-svg">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                      </svg>
+                    </span>
+                    <div>
+                      <strong>Interactive Commerce Suite:</strong> Quick-view product modals, instant theme switching,
+                      and simulated checkout with animated validation.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="project-tech-stack">
+                  <span class="tech-pill">HTML5</span>
+                  <span class="tech-pill">CSS3</span>
+                  <span class="tech-pill">JavaScript</span>
+                  <span class="tech-pill mono-label">LOCALSTORAGE API</span>
+                  <span class="tech-pill mono-label">MODAL ARCHITECTURE</span>
+                </div>
+              </div>
+
+              <!-- Real Styled Interface Mockup -->
+              <div class="project-preview-wrap">
+                <div class="preview-browser-frame">
+                  <div class="frame-bar">
+                    <div class="frame-dots">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <a href="https://abhishek-commits-hub.github.io/Nexora/" target="_blank" rel="noopener noreferrer" class="frame-url mono-label" title="Launch Nexora live demo">abhishek-commits-hub.github.io/Nexora/</a>
+                    <div class="frame-status mono-label" id="mock-cart-counter">CART (03)</div>
+                  </div>
+
+                  <div class="preview-inner nexora-ui">
+                    <div class="nexora-navbar-mock">
+                      <span class="mock-brand">NEXORA<span class="dot">.</span></span>
+                      <div class="mock-filters">
+                        <span class="filter-chip active mono-label">ALL (30)</span>
+                        <span class="filter-chip mono-label">AUDIO</span>
+                        <span class="filter-chip mono-label">WEARABLES</span>
+                      </div>
+                      <span class="mock-cart-badge mono-label" id="mock-cart-badge">CART · $349</span>
+                    </div>
+
+                    <div class="nexora-items-grid">
+                      <div class="nexora-item-card" data-card-item>
+                        <div class="item-img-placeholder audio-item">
+                          <span class="item-tag mono-label">FEATURED</span>
+                          <div class="item-icon-svg">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                              <path
+                                d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z">
+                              </path>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="item-meta">
+                          <span class="item-title">AeroTone Studio Pro</span>
+                          <span class="item-price">$189.00</span>
+                        </div>
+                        <div class="item-actions-mock mono-label">
+                          <span class="add-cart-action">+ ADD TO CART</span>
+                          <span class="wishlist-action">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                              stroke-width="1" aria-hidden="true">
+                              <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                              </polygon>
+                            </svg>
+                            WISHLIST
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="nexora-item-card" data-card-item>
+                        <div class="item-img-placeholder tech-item">
+                          <span class="item-tag mono-label">NEW ARRIVAL</span>
+                          <div class="item-icon-svg">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                          </div>
+                        </div>
+                        <div class="item-meta">
+                          <span class="item-title">Pulse X Optical Monitor</span>
+                          <span class="item-price">$120.00</span>
+                        </div>
+                        <div class="item-actions-mock mono-label">
+                          <span class="add-cart-action">+ ADD TO CART</span>
+                          <span class="wishlist-action">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                              stroke-width="1" aria-hidden="true">
+                              <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                              </polygon>
+                            </svg>
+                            WISHLIST
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="nexora-storage-badge mono-label">
+                      <span>SYNC: LOCALSTORAGE ACTIVE</span>
+                      <span>THEME: OBSIDIAN / TEAL</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 02: ABOUT ME -->
+    <section id="about" class="content-section about-section">
+      <div class="section-container">
+
+        <div class="section-header reveal-on-scroll">
+          <div class="section-pretitle">
+            <span class="mono-tag">02 · ABOUT ME</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Curious by nature.<br>A builder by practice.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-narrative reveal-on-scroll">
+            <p class="lead-paragraph">
+              I am an undergraduate pursuing my <strong class="text-paper">B.Tech in Computer Science and
+                Engineering</strong> at Birsa Institute of Technology, Sindri (2025–2029).
+            </p>
+            <p>
+              My work centers on the craftsmanship of frontend engineering: transforming logic and technical structures
+              into responsive, accessible, and high-performance web interfaces. Rather than assembling fragile
+              dependencies, I focus on mastery of fundamental web standards—HTML, semantic CSS, and modern JavaScript.
+            </p>
+            <p>
+              Alongside frontend development, I am deeply engaged in competitive programming, data structures, and
+              algorithms. This analytical discipline informs how I think about browser runtime efficiency, DOM
+              complexity, and state flow in everyday engineering tasks.
+            </p>
+
+            <div class="about-quote-box">
+              <span class="quote-mark">“</span>
+              <p>Code that solves real problems, packaged in interfaces that respect user attention and technical
+                precision.</p>
+            </div>
+          </div>
+
+          <div class="about-facts-card reveal-on-scroll" data-tilt>
+            <div class="facts-header">
+              <span class="mono-label">SOURCE OF TRUTH</span>
+              <span class="mono-label">VERIFIED METRICS</span>
+            </div>
+
+            <dl class="facts-list">
+              <div class="fact-row">
+                <dt class="mono-label">CURRENT ENROLLMENT</dt>
+                <dd>B.Tech Computer Science &amp; Engineering</dd>
+              </div>
+              <div class="fact-row">
+                <dt class="mono-label">INSTITUTION</dt>
+                <dd>Birsa Institute of Technology, Sindri</dd>
+              </div>
+              <div class="fact-row">
+                <dt class="mono-label">ACADEMIC PERIOD</dt>
+                <dd class="mono-val">2025 – 2029</dd>
+              </div>
+              <div class="fact-row">
+                <dt class="mono-label">GEOGRAPHIC LOCATION</dt>
+                <dd>Dhanbad, Jharkhand, India</dd>
+              </div>
+              <div class="fact-row">
+                <dt class="mono-label">PRIMARY LANGUAGE ROOTS</dt>
+                <dd>Java · C · C++</dd>
+              </div>
+              <div class="fact-row">
+                <dt class="mono-label">FRONTEND SPECIALIZATION</dt>
+                <dd>HTML5 · CSS3 · JavaScript (ES6+)</dd>
+              </div>
+              <div class="fact-row">
+                <dt class="mono-label">STATUS</dt>
+                <dd><span class="status-badge-inline">● Open to Collaborations &amp; Internships</span></dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 03: TECHNICAL TOOLKIT -->
+    <section id="toolkit" class="content-section toolkit-section">
+      <div class="section-container">
+
+        <div class="section-header reveal-on-scroll">
+          <div class="section-pretitle">
+            <span class="mono-tag">03 · TECHNICAL TOOLKIT</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Core capabilities, no fabricated fluff.</h2>
+          <p class="section-subtitle">
+            An accurate audit of technologies I actively code in—grounded in computer science foundations and verified
+            practical implementation.
+          </p>
+        </div>
+
+        <div class="toolkit-grid">
+
+          <!-- Category 1: Programming Languages -->
+          <div class="toolkit-card reveal-on-scroll" data-tilt>
+            <div class="toolkit-card-header">
+              <span class="mono-label">CATEGORY 01</span>
+              <div class="toolkit-icon-svg">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+            </div>
+            <h3 class="toolkit-category-title">PROGRAMMING</h3>
+            <p class="toolkit-desc">Foundation languages for systems programming, object-oriented software design, and
+              algorithm implementation.</p>
+
+            <ul class="skills-tag-list">
+              <li class="skill-item">
+                <span class="skill-name">Java</span>
+                <span class="skill-meta mono-label">OOP · Collections</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">C</span>
+                <span class="skill-meta mono-label">Pointers · Memory</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">C++</span>
+                <span class="skill-meta mono-label">STL · Competitive Programming</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 2: Core Computer Science -->
+          <div class="toolkit-card reveal-on-scroll" data-tilt>
+            <div class="toolkit-card-header">
+              <span class="mono-label">CATEGORY 02</span>
+              <div class="toolkit-icon-svg">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                  <rect x="9" y="9" width="6" height="6"></rect>
+                  <line x1="9" y1="1" x2="9" y2="4"></line>
+                  <line x1="15" y1="1" x2="15" y2="4"></line>
+                  <line x1="9" y1="20" x2="9" y2="23"></line>
+                  <line x1="15" y1="20" x2="15" y2="23"></line>
+                  <line x1="20" y1="9" x2="23" y2="9"></line>
+                  <line x1="20" y1="14" x2="23" y2="14"></line>
+                  <line x1="1" y1="9" x2="4" y2="9"></line>
+                  <line x1="1" y1="14" x2="4" y2="14"></line>
+                </svg>
+              </div>
+            </div>
+            <h3 class="toolkit-category-title">CORE COMPUTER SCIENCE</h3>
+            <p class="toolkit-desc">Theoretical foundations applied directly to problem solving, time complexity
+              analysis, and modular software architecture.</p>
+
+            <ul class="skills-tag-list">
+              <li class="skill-item">
+                <span class="skill-name">Data Structures &amp; Algorithms</span>
+                <span class="skill-meta mono-label">Trees · Graphs · DP</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">Object-Oriented Programming</span>
+                <span class="skill-meta mono-label">Abstraction · Modularity</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 3: Frontend Web Development -->
+          <div class="toolkit-card highlight-border reveal-on-scroll" data-tilt>
+            <div class="toolkit-card-header">
+              <span class="mono-label">CATEGORY 03</span>
+              <div class="toolkit-icon-svg">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="toolkit-category-title">FRONTEND ENGINEERING</h3>
+            <p class="toolkit-desc">Building responsive, pixel-accurate, and accessible web experiences from ground
+              principles without framework bloat.</p>
+
+            <ul class="skills-tag-list">
+              <li class="skill-item">
+                <span class="skill-name">HTML5</span>
+                <span class="skill-meta mono-label">Semantic Layouts · A11y</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">CSS3</span>
+                <span class="skill-meta mono-label">Flexbox · Grid · Keyframes</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">JavaScript</span>
+                <span class="skill-meta mono-label">ES6+ · DOM · Async APIs</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Category 4: Tools & Environments -->
+          <div class="toolkit-card reveal-on-scroll" data-tilt>
+            <div class="toolkit-card-header">
+              <span class="mono-label">CATEGORY 04</span>
+              <div class="toolkit-icon-svg">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="toolkit-category-title">DEVELOPMENT TOOLS</h3>
+            <p class="toolkit-desc">Modern collaborative workflow utilities for source control, debugging, and efficient
+              code production.</p>
+
+            <ul class="skills-tag-list">
+              <li class="skill-item">
+                <span class="skill-name">Git</span>
+                <span class="skill-meta mono-label">Version Control · Branching</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">GitHub</span>
+                <span class="skill-meta mono-label">Collaboration · CI/CD</span>
+              </li>
+              <li class="skill-item">
+                <span class="skill-name">VS Code</span>
+                <span class="skill-meta mono-label">Extensions · Debugging</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 04: EXPERIENCE & COMMUNITY -->
+    <section id="experience" class="content-section trajectory-section">
+      <div class="section-container">
+
+        <div class="section-header reveal-on-scroll">
+          <div class="section-pretitle">
+            <span class="mono-tag">04 · TRAJECTORY</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Industry experience &amp; community leadership.</h2>
+          <p class="section-subtitle">
+            Applying engineering rigor to team projects, practical web internships, and national hackathon volunteer
+            work.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+
+          <!-- Internship Item -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-marker">
+              <span class="marker-dot"></span>
+              <span class="timeline-line"></span>
+            </div>
+            <div class="timeline-content" data-tilt>
+              <div class="timeline-top">
+                <div class="timeline-role-wrap">
+                  <span class="timeline-type mono-label">INTERNSHIP EXPERIENCE</span>
+                  <h3 class="timeline-role">Web Development Intern</h3>
+                  <h4 class="timeline-org">ApexPlanet Software Pvt. Ltd.</h4>
+                </div>
+                <div class="timeline-date-badge mono-label">
+                  11 AUG 2026 – 24 SEPT 2026
+                  <span class="loc-tag">ONLINE</span>
+                </div>
+              </div>
+              <p class="timeline-description">
+                Completed an intensive industry internship focused on foundational and intermediate web development.
+                Delivered practical client-side tasks utilizing HTML, CSS, and modern JavaScript, ensuring browser
+                compatibility and responsive device behavior across core modules.
+              </p>
+              <div class="timeline-tags">
+                <span class="tech-pill">HTML5</span>
+                <span class="tech-pill">CSS3</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill mono-label">PRACTICAL WEB WORKFLOW</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Community Item -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-marker">
+              <span class="marker-dot"></span>
+            </div>
+            <div class="timeline-content" data-tilt>
+              <div class="timeline-top">
+                <div class="timeline-role-wrap">
+                  <span class="timeline-type mono-label">POSITION OF RESPONSIBILITY &amp; COMMUNITY</span>
+                  <h3 class="timeline-role">Active Member</h3>
+                  <h4 class="timeline-org">Hackathon and Coding Club (HnCC), BIT Sindri</h4>
+                </div>
+                <div class="timeline-date-badge mono-label">
+                  NOV 2025 – PRESENT
+                  <span class="loc-tag">BIT SINDRI</span>
+                </div>
+              </div>
+              <p class="timeline-description">
+                Active core contributor in competitive programming, DSA sprints, and peer-to-peer web development
+                workshops. Successfully volunteered at <strong class="text-paper">Hackatron</strong>, a prestigious
+                36-hour national intercollege hackathon hosted at BIT Sindri, assisting with event logistics, platform
+                coordination, and participant onboarding.
+              </p>
+              <div class="timeline-tags">
+                <span class="tech-pill">Competitive Programming</span>
+                <span class="tech-pill">DSA Mentorship</span>
+                <span class="tech-pill">Hackatron Organization</span>
+                <span class="tech-pill mono-label">COMMUNITY LEADERSHIP</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 05: ACHIEVEMENTS & CERTIFICATIONS -->
+    <section id="achievements" class="content-section achievements-section">
+      <div class="section-container">
+
+        <div class="section-header reveal-on-scroll">
+          <div class="section-pretitle">
+            <span class="mono-tag">05 · RECOGNITION</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Small milestones.<br>Consistent progress.</h2>
+          <p class="section-subtitle">
+            Measurable results earned across national hackathon selections, collegiate programming tournaments, and
+            technical simulations.
+          </p>
+        </div>
+
+        <div class="recognition-grid">
+
+          <!-- Coding Achievements Column -->
+          <div class="recognition-col">
+            <h3 class="col-heading mono-label">COMPETITIVE &amp; CODING ACHIEVEMENTS</h3>
+
+            <div class="achievement-cards-list">
+
+              <!-- Achievement 1 -->
+              <div class="achievement-card reveal-on-scroll" data-tilt>
+                <div class="ach-header">
+                  <span class="ach-num mono-label">01</span>
+                  <span class="ach-badge mono-label">NATIONAL SELECTION</span>
+                </div>
+                <h4 class="ach-title">Smart India Hackathon (SIH) 2026</h4>
+                <p class="ach-desc">
+                  Selected in the rigorous college-level internal evaluation round with <strong class="text-paper">Team
+                    BidRakshak</strong>, presenting an innovative digital solution for national-scale competition.
+                </p>
+              </div>
+
+              <!-- Achievement 2 -->
+              <div class="achievement-card reveal-on-scroll" data-tilt>
+                <div class="ach-header">
+                  <span class="ach-num mono-label">02</span>
+                  <span class="ach-badge mono-label">PODIUM FINISH</span>
+                </div>
+                <h4 class="ach-title">CodeCamp — 3rd Rank</h4>
+                <p class="ach-desc">
+                  Secured <strong class="text-paper">3rd rank</strong> in the comprehensive post-bootcamp coding
+                  assessment organized by HnCC, BIT Sindri, outperforming a competitive cohort of participants.
+                </p>
+              </div>
+
+              <!-- Achievement 3 -->
+              <div class="achievement-card reveal-on-scroll" data-tilt>
+                <div class="ach-header">
+                  <span class="ach-num mono-label">03</span>
+                  <span class="ach-badge mono-label">OVERALL RANKING</span>
+                </div>
+                <h4 class="ach-title">BIT Code — September 2026</h4>
+                <p class="ach-desc">
+                  Ranked <strong class="text-paper">3rd among second-year participants</strong> and <strong
+                    class="text-paper">6th overall</strong> across the entire institute coding contest testing
+                  algorithms and data structures.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Certifications & Job Simulations Column -->
+          <div class="recognition-col">
+            <h3 class="col-heading mono-label">CERTIFICATIONS &amp; SIMULATIONS</h3>
+
+            <div class="cert-cards-list">
+
+              <!-- Cert 1 -->
+              <div class="cert-card reveal-on-scroll" data-tilt>
+                <div class="cert-meta mono-label">
+                  <span>SIMPLILEARN SKILLUP</span>
+                  <span class="cert-date">APRIL 2026</span>
+                </div>
+                <h4 class="cert-title">Introduction to Generative AI Studio</h4>
+                <p class="cert-desc">
+                  Acquired verified understanding of generative AI workflows, model prompting foundations, and AI tool
+                  ecosystems.
+                </p>
+                <div class="cert-footer mono-label">
+                  <span>CREDENTIAL VERIFIED</span>
+                  <span class="cert-tick-svg">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Cert 2 -->
+              <div class="cert-card reveal-on-scroll" data-tilt>
+                <div class="cert-meta mono-label">
+                  <span>DELOITTE · FORAGE</span>
+                  <span class="cert-date">APRIL 2026</span>
+                </div>
+                <h4 class="cert-title">Deloitte Technology Job Simulation</h4>
+                <p class="cert-desc">
+                  Completed virtual corporate job simulation practical exercises tackling technology consulting
+                  dilemmas, architecture evaluation, and implementation strategies.
+                </p>
+                <div class="cert-footer mono-label">
+                  <span>SIMULATION COMPLETED</span>
+                  <span class="cert-tick-svg">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.5"
+                      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 06: EDUCATION -->
+    <section id="education" class="content-section education-section">
+      <div class="section-container">
+
+        <div class="section-header reveal-on-scroll">
+          <div class="section-pretitle">
+            <span class="mono-tag">06 · ACADEMIC BACKGROUND</span>
+            <span class="tag-line"></span>
+          </div>
+          <h2 class="section-title">Educational pedigree.</h2>
+          <p class="section-subtitle">
+            Consistent academic excellence spanning secondary schooling through undergraduate engineering.
+          </p>
+        </div>
+
+        <div class="education-table-wrap reveal-on-scroll">
+          <table class="education-table" aria-label="Academic qualification summary">
+            <thead>
+              <tr>
+                <th scope="col" class="mono-label">QUALIFICATION</th>
+                <th scope="col" class="mono-label">INSTITUTION</th>
+                <th scope="col" class="mono-label">PERIOD</th>
+                <th scope="col" class="mono-label text-right">SCORE · STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="edu-row-primary">
+                <td>
+                  <div class="edu-degree">B.Tech in Computer Science &amp; Engineering</div>
+                  <div class="edu-specialization mono-label">Undergraduate Engineering</div>
+                </td>
+                <td>
+                  <div class="edu-school">Birsa Institute of Technology, Sindri</div>
+                  <div class="edu-loc mono-label">Dhanbad, Jharkhand</div>
+                </td>
+                <td class="mono-val">2025 – 2029</td>
+                <td class="text-right">
+                  <span class="status-pill-small">PURSUING</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="edu-degree">Class XII (ISC Senior Secondary)</div>
+                  <div class="edu-specialization mono-label">Science Stream</div>
+                </td>
+                <td>
+                  <div class="edu-school">De Nobili School, C.M.R.I., Dhanbad</div>
+                  <div class="edu-loc mono-label">Council for the Indian School Certificate Examinations</div>
+                </td>
+                <td class="mono-val">2024</td>
+                <td class="text-right">
+                  <span class="score-badge mono-val">84.33%</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="edu-degree">Class X (ICSE Secondary)</div>
+                  <div class="edu-specialization mono-label">General Curriculum</div>
+                </td>
+                <td>
+                  <div class="edu-school">De Nobili School, C.M.R.I., Dhanbad</div>
+                  <div class="edu-loc mono-label">Council for the Indian School Certificate Examinations</div>
+                </td>
+                <td class="mono-val">2022</td>
+                <td class="text-right">
+                  <span class="score-badge mono-val">82.70%</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 07: CONTACT SECTION -->
+    <section id="contact" class="content-section contact-section">
+      <div class="section-container">
+
+        <div class="contact-box reveal-on-scroll">
+          <div class="contact-inner-grid">
+
+            <div class="contact-left">
+              <div class="section-pretitle">
+                <span class="mono-tag">REACH OUT</span>
+                <span class="tag-line"></span>
+              </div>
+
+              <h2 class="contact-headline">
+                Have something<br>
+                <span class="accent-orange-text">worth building?</span>
+              </h2>
+
+              <p class="contact-lead">
+                Let’s connect, exchange ideas, and build something meaningful. I am always open to engineering
+                conversations, open-source projects, and frontend opportunities.
+              </p>
+
+              <div class="contact-meta-list">
+                <div class="meta-item">
+                  <span class="mono-label">LOCATION</span>
+                  <span class="meta-value">Dhanbad, Jharkhand, India</span>
+                </div>
+                <div class="meta-item">
+                  <span class="mono-label">DIRECT PHONE</span>
+                  <a href="tel:+917991121048" class="meta-link mono-val">+91 7991121048</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-right">
+
+              <!-- Direct Action Card -->
+              <div class="email-action-card" data-tilt>
+                <span class="mono-label">PRIMARY INBOX</span>
+                <div class="email-display" id="email-address">abhishekdutta.contact@gmail.com</div>
+
+                <div class="email-buttons-row">
+                  <button id="copy-email-btn" class="btn btn-copy" data-magnetic
+                    aria-label="Copy email address to clipboard">
+                    <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span id="copy-text">COPY EMAIL</span>
+                  </button>
+
+                  <a href="mailto:abhishekdutta.contact@gmail.com" class="btn btn-primary" data-magnetic
+                    aria-label="Open email client">
+                    <span>SEND MESSAGE</span>
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                      <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </a>
+                </div>
+
+                <div id="copy-toast" class="copy-toast mono-label" role="status" aria-live="polite">✓ Copied to
+                  clipboard</div>
+              </div>
+
+              <!-- Professional Network Links -->
+              <div class="social-links-grid">
+                <a href="https://linkedin.com/in/abhishek-kumar-dutta" target="_blank" rel="noopener noreferrer"
+                  class="social-card" data-tilt>
+                  <div class="social-card-top">
+                    <span class="mono-label">PROFESSIONAL</span>
+                    <span class="external-arrow">↗</span>
+                  </div>
+                  <div class="social-name">LinkedIn Profile</div>
+                  <div class="social-handle mono-label">/in/abhishek-kumar-dutta</div>
+                </a>
+
+                <a href="https://github.com/Abhishek-Commits-Hub" target="_blank" rel="noopener noreferrer"
+                  class="social-card" data-tilt>
+                  <div class="social-card-top">
+                    <span class="mono-label">SOURCE REPOSITORIES</span>
+                    <span class="external-arrow">↗</span>
+                  </div>
+                  <div class="social-name">GitHub Profile</div>
+                  <div class="social-handle mono-label">@Abhishek-Commits-Hub</div>
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="brand-logo-frame">
+              <img src="logo.svg" alt="Abhishek Kumar Dutta Logo" class="brand-logo-img" width="34" height="34">
+            </span>
+            <span class="footer-name">ABHISHEK KUMAR DUTTA</span>
+          </div>
+          <p class="footer-descriptor">
+            Undergraduate Computer Science Engineer &amp; Frontend Developer based in Dhanbad, India.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <span class="mono-label">SITEMAP</span>
+          <ul class="footer-links">
+            <li><a href="#hero">00 · Home</a></li>
+            <li><a href="#projects">01 · Selected Work</a></li>
+            <li><a href="#about">02 · About Me</a></li>
+            <li><a href="#toolkit">03 · Technical Toolkit</a></li>
+            <li><a href="#experience">04 · Trajectory</a></li>
+            <li><a href="#achievements">05 · Recognition</a></li>
+            <li><a href="#education">06 · Academic Pedigree</a></li>
+            <li><a href="#contact">07 · Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-action">
+          <a href="#hero" class="btn-top" data-magnetic aria-label="Scroll back to top">
+            <span>BACK TO TOP</span>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M7 13V1M7 1L1 7M7 1L13 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy mono-label">
+          © <span id="year-holder">2026</span> ABHISHEK KUMAR DUTTA · ALL RIGHTS RESERVED
+        </div>
+        <div class="footer-meta mono-label">
+          SYSTEM: OBSIDIAN · SIGNAL · BIT SINDRI
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
