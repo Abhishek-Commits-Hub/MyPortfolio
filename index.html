@@ -1109,34 +1109,67 @@
 
             <div class="contact-right">
 
-              <!-- Direct Action Card -->
-              <div class="email-action-card" data-tilt>
-                <span class="mono-label">PRIMARY INBOX</span>
+              <!-- Direct Action & Contact Form Card -->
+              <div class="email-action-card contact-form-card" data-tilt>
+                <div class="contact-card-top">
+                  <span class="mono-label">DISPATCH DIRECT INQUIRY</span>
+                  <span class="inbox-status mono-label"><span class="status-dot"></span> OPEN FOR OPPORTUNITIES</span>
+                </div>
                 <div class="email-display" id="email-address">abhishekdutta.contact@gmail.com</div>
 
-                <div class="email-buttons-row">
-                  <button id="copy-email-btn" class="btn btn-copy" data-magnetic
-                    aria-label="Copy email address to clipboard">
-                    <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </svg>
-                    <span id="copy-text">COPY EMAIL</span>
-                  </button>
+                <form id="contact-form" class="contact-form" novalidate>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="contact-name" class="form-label mono-label">01 · YOUR NAME <span class="req">*</span></label>
+                      <input type="text" id="contact-name" name="name" class="form-input" placeholder="e.g. Alex Morgan" autocomplete="name" required>
+                      <span class="field-error mono-label" id="name-error" aria-live="polite"></span>
+                    </div>
 
-                  <a href="mailto:abhishekdutta.contact@gmail.com" class="btn btn-primary" data-magnetic
-                    aria-label="Open email client">
-                    <span>SEND MESSAGE</span>
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
-                      <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    </svg>
-                  </a>
-                </div>
+                    <div class="form-group">
+                      <label for="contact-email" class="form-label mono-label">02 · YOUR EMAIL <span class="req">*</span></label>
+                      <input type="email" id="contact-email" name="email" class="form-input" placeholder="alex@company.com" autocomplete="email" required>
+                      <span class="field-error mono-label" id="email-error" aria-live="polite"></span>
+                    </div>
+                  </div>
 
-                <div id="copy-toast" class="copy-toast mono-label" role="status" aria-live="polite">✓ Copied to
-                  clipboard</div>
+                  <div class="form-group">
+                    <label for="contact-subject" class="form-label mono-label">03 · SUBJECT / PURPOSE <span class="req">*</span></label>
+                    <input type="text" id="contact-subject" name="subject" class="form-input" placeholder="Project Inquiry / Job Opportunity / Collaboration" required>
+                    <span class="field-error mono-label" id="subject-error" aria-live="polite"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="contact-message" class="form-label mono-label">04 · MESSAGE <span class="req">*</span></label>
+                    <textarea id="contact-message" name="message" class="form-textarea" rows="4" placeholder="Briefly describe what you'd like to build, discuss, or collaborate on..." required></textarea>
+                    <span class="field-error mono-label" id="message-error" aria-live="polite"></span>
+                  </div>
+
+                  <div class="email-buttons-row">
+                    <button type="submit" id="send-msg-btn" class="btn btn-primary" data-magnetic
+                      aria-label="Validate and open Gmail compose with details">
+                      <span id="send-btn-label">SEND MESSAGE</span>
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </button>
+
+                    <button type="button" id="copy-email-btn" class="btn btn-copy" data-magnetic
+                      aria-label="Copy email address to clipboard">
+                      <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                      </svg>
+                      <span id="copy-text">COPY EMAIL</span>
+                    </button>
+                  </div>
+
+                  <div id="form-redirect-toast" class="form-redirect-toast mono-label" role="status" aria-live="polite">
+                    ✓ Validated! Redirecting to Gmail compose...
+                  </div>
+                  <div id="copy-toast" class="copy-toast mono-label" role="status" aria-live="polite">✓ Copied to clipboard</div>
+                </form>
               </div>
 
               <!-- Professional Network Links -->

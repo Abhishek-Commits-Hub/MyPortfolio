@@ -43,6 +43,19 @@
   const yearHolder = document.getElementById('year-holder');
   const cursorGlow = document.getElementById('cursor-glow');
 
+  /* Contact Form Elements */
+  const contactForm = document.getElementById('contact-form');
+  const nameInput = document.getElementById('contact-name');
+  const emailInput = document.getElementById('contact-email');
+  const subjectInput = document.getElementById('contact-subject');
+  const messageInput = document.getElementById('contact-message');
+  const nameError = document.getElementById('name-error');
+  const emailError = document.getElementById('email-error');
+  const subjectError = document.getElementById('subject-error');
+  const messageError = document.getElementById('message-error');
+  const sendBtnLabel = document.getElementById('send-btn-label');
+  const formRedirectToast = document.getElementById('form-redirect-toast');
+
   /* Animation State */
   const images = new Array(TOTAL_FRAMES);
   let loadedCount = 0;
@@ -417,6 +430,112 @@
     });
   }
 
+  /* Validated Contact Form & Gmail Compose Redirection */
+  function setupContactForm() {
+    if (!contactForm) return;
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function clearFieldError(input, errorEl) {
+      if (input) input.classList.remove('is-invalid');
+      if (errorEl) errorEl.textContent = '';
+    }
+
+    function setFieldError(input, errorEl, message) {
+      if (input) {
+        input.classList.add('is-invalid');
+        input.focus();
+      }
+      if (errorEl) {
+        errorEl.textContent = message;
+      }
+    }
+
+    // Real-time error clearing on input
+    if (nameInput) nameInput.addEventListener('input', () => clearFieldError(nameInput, nameError));
+    if (emailInput) emailInput.addEventListener('input', () => clearFieldError(emailInput, emailError));
+    if (subjectInput) subjectInput.addEventListener('input', () => clearFieldError(subjectInput, subjectError));
+    if (messageInput) messageInput.addEventListener('input', () => clearFieldError(messageInput, messageError));
+
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const nameVal = nameInput ? nameInput.value.trim() : '';
+      const emailVal = emailInput ? emailInput.value.trim() : '';
+      const subjectVal = subjectInput ? subjectInput.value.trim() : '';
+      const messageVal = messageInput ? messageInput.value.trim() : '';
+
+      let isValid = true;
+
+      // Validate in reverse order so the top-most invalid input receives focus
+      if (!messageVal || messageVal.length < 5) {
+        setFieldError(messageInput, messageError, 'Please enter a message (min. 5 characters).');
+        isValid = false;
+      } else {
+        clearFieldError(messageInput, messageError);
+      }
+
+      if (!subjectVal || subjectVal.length < 2) {
+        setFieldError(subjectInput, subjectError, 'Please provide a subject or project purpose.');
+        isValid = false;
+      } else {
+        clearFieldError(subjectInput, subjectError);
+      }
+
+      if (!emailVal) {
+        setFieldError(emailInput, emailError, 'Email address is required.');
+        isValid = false;
+      } else if (!emailRegex.test(emailVal)) {
+        setFieldError(emailInput, emailError, 'Please enter a valid email address.');
+        isValid = false;
+      } else {
+        clearFieldError(emailInput, emailError);
+      }
+
+      if (!nameVal || nameVal.length < 2) {
+        setFieldError(nameInput, nameError, 'Please enter your name.');
+        isValid = false;
+      } else {
+        clearFieldError(nameInput, nameError);
+      }
+
+      if (!isValid) return;
+
+      // Validation succeeded! Construct prefilled Gmail Compose URL
+      const emailSubject = `Portfolio Inquiry from ${nameVal}: ${subjectVal}`;
+      const emailBody = `Hi Abhishek,
+
+${messageVal}
+
+--------------------------------------------------
+Sender Information:
+• Name: ${nameVal}
+• Email: ${emailVal}
+• Sent via: Abhishek Kumar Dutta Developer Portfolio
+--------------------------------------------------`;
+
+      const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(EMAIL_ADDRESS)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+      // Update button state and toast
+      if (sendBtnLabel) sendBtnLabel.textContent = 'OPENING GMAIL...';
+      if (formRedirectToast) formRedirectToast.classList.add('visible');
+
+      setTimeout(() => {
+        // Try opening in new tab first (standard web behavior)
+        const newTab = window.open(gmailComposeUrl, '_blank', 'noopener,noreferrer');
+        // If popup blocker stops it or on mobile, redirect directly
+        if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+          window.location.href = gmailComposeUrl;
+        }
+
+        setTimeout(() => {
+          if (sendBtnLabel) sendBtnLabel.textContent = 'SEND MESSAGE';
+          if (formRedirectToast) formRedirectToast.classList.remove('visible');
+        }, 2500);
+      }, 400);
+    });
+  }
+
   /* Dynamic Year */
   function setupDynamicYear() {
     if (yearHolder) {
@@ -438,6 +557,7 @@
     setupScrollSpy();
     setupScrollReveal();
     setupEmailCopy();
+    setupContactForm();
     setupTiltEffects();
     setupMagneticButtons();
     setupCursorGlow();
