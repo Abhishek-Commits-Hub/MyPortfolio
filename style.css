@@ -340,13 +340,13 @@ button {
 }
 
 .nav-container {
-  max-width: var(--max-width);
+  max-width: 100%;
   height: 100%;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .brand-monogram {
@@ -371,17 +371,17 @@ button {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: clamp(14px, 1.8vw, 26px);
 }
 
 .nav-link {
   font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-size: clamp(0.8rem, 0.92vw, 0.88rem);
   font-weight: 500;
   color: var(--text-muted);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   padding: 6px 0;
   position: relative;
   transition: color var(--transition-fast);
